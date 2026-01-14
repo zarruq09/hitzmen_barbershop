@@ -1,0 +1,254 @@
+/* Modern Professional Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root {
+    /* Colors */
+    --bg-primary: #121212;
+    --bg-secondary: #1E1E1E;
+    --bg-card: #252525;
+    --text-primary: #F3F4F6;
+    --text-secondary: #9CA3AF;
+    --accent-gold: #C5A059;
+    --accent-gold-hover: #D4AF37;
+    --border-color: #333333;
+    --success: #10B981;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+}
+
+/* Base Reset & Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* MacOS smoothing */
+    color-scheme: dark;
+    /* Forces iOS native elements (date picker) to dark mode */
+}
+
+/* iOS Input Standardization */
+input,
+textarea,
+select {
+    -webkit-appearance: none;
+    /* Remove iOS default styles */
+    appearance: none;
+    border-radius: 6px;
+    /* Enforce our radius */
+}
+
+/* Fix for date inputs on iOS to show consistent styling */
+input[type="date"],
+input[type="time"] {
+    min-height: 52px;
+    /* iOS sometimes collapses empty date inputs */
+    display: block;
+    width: 100%;
+    /* Ensure text is visible on iOS even if placeholder is quirky */
+    color-scheme: dark;
+}
+
+/* Specific WebKit fix for iOS Date Input Text Alignment/Color */
+input[type="date"]::-webkit-date-and-time-value,
+input[type="time"]::-webkit-date-and-time-value {
+    text-align: left;
+    color: var(--text-primary);
+    min-height: 52px;
+    /* Ensure content area matches input height */
+    padding-top: 14px;
+    /* Approximate vertical centering for iOS */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: 2rem;
+    letter-spacing: -0.01em;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+}
+
+/* Utility Classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+.text-gold {
+    color: var(--accent-gold);
+}
+
+.text-muted {
+    color: var(--text-secondary);
+}
+
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+.uppercase-tracking {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    border: none;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--accent-gold);
+    color: #121212;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-gold-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+.btn-danger {
+    background-color: #7F1D1D;
+    color: #FECACA;
+}
+
+.btn-danger:hover {
+    background-color: #991B1B;
+}
+
+/* Form Elements */
+input,
+select,
+textarea {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 10px 16px;
+    border-radius: 6px;
+    width: 100%;
+    transition: border-color var(--transition-fast);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+}
+
+/* Card Component */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    transition: transform var(--transition-base);
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+    background-color: rgba(30, 30, 30, 0.9);
+}
+
+.nav-link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.nav-link:hover {
+    color: var(--accent-gold);
+    background-color: rgba(197, 160, 89, 0.1);
+}
+
+.nav-link.active {
+    color: var(--accent-gold);
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    padding: var(--spacing-md) 0;
+    margin-top: var(--spacing-lg);
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+    .navbar .hidden-mobile {
+        display: none;
+    }
+
+    .navbar .visible-mobile {
+        display: block;
+    }
+}

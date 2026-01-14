@@ -1,0 +1,10 @@
+CARA GUNA AUDIO SENDIRI:
+
+1. Letak file audio anda (format .mp3 atau .wav) dalam folder ini.
+2. Namakan file tersebut sebagai: notification.mp3
+3. Selepas itu, bagitahu AI/System: "Saya dah letak file notification.mp3".
+4. System akan update coding untuk guna file ini instead of bunyi "Ding" default.
+
+NOTA:
+Browser (Chrome/Edge) menyekat bunyi automatik.
+Anda MESTI klik sekurang-kurangnya sekali pada page Admin Dashboard setiap kali refresh/load untuk membenarkan bunyi dimainkan.

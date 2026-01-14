@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FYP Poster - Hitzmen Barbershop</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* A3 Portrait: 297mm x 420mm at 300dpi = 3508px x 4961px */
+        /* For screen display, we'll use a scaled version */
+        @page {
+            size: A3 portrait;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #121212;
+            color: #e0e0e0;
+            width: 297mm;
+            min-height: 420mm;
+            margin: 0 auto;
+            padding: 20px 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .poster-container {
+            width: 100%;
+            min-height: 420mm;
+            background: #121212;
+            padding: 15mm;
+            display: flex;
+            flex-direction: column;
+            gap: 8mm;
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #1E1E1E 0%, #121212 100%);
+            padding: 8mm;
+            border: 2px solid #C5A059;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        /* HEADER RE-LAYOUT */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8mm;
+            /* Lebihkan gap sikit */
+            padding: 0 5mm;
+        }
+
+        .logo-container img {
+            height: 35mm;
+            /* Maintain besar */
+            width: auto;
+        }
+
+        .header-right-text {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .fyp-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36pt;
+            /* Besar lagi biar gempak */
+            font-weight: 900;
+            color: #C5A059;
+            /* Gold theme */
+            margin-bottom: 2mm;
+            line-height: 0.9;
+            text-transform: uppercase;
+        }
+
+        .faculty-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14pt;
+            color: #e0e0e0;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.3;
+        }
+
+        .project-title {
+            text-align: center;
+            padding: 5mm;
+            border: 2px solid #C5A059;
+            border-radius: 4px;
+            background: rgba(197, 160, 89, 0.05);
+        }
+
+        .project-title h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24pt;
+            color: #D4AF37;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* CONTENT SECTIONS */
+        .content-row {
+            display: flex;
+            gap: 5mm;
+            flex: 1;
+        }
+
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4mm;
+        }
+
+        .section {
+            background: #1E1E1E;
+            border: 1px solid #333333;
+            border-radius: 6px;
+            padding: 4mm;
+        }
+
+        .section-header {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12pt;
+            font-weight: 700;
+            color: #C5A059;
+            margin-bottom: 3mm;
+            padding-bottom: 2mm;
+            border-bottom: 2px solid #C5A059;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section p {
+            font-size: 9pt;
+            line-height: 1.5;
+            color: #d0d0d0;
+            text-align: justify;
+        }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section li {
+            font-size: 8.5pt;
+            line-height: 1.6;
+            margin-bottom: 2mm;
+            padding-left: 5mm;
+            position: relative;
+            color: #d0d0d0;
+        }
+
+        .section li:before {
+            content: "●";
+            color: #C5A059;
+            font-size: 10pt;
+            position: absolute;
+            left: 0;
+        }
+
+        /* TWO COLUMN LIST */
+        .two-column-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3mm;
+        }
+
+        /* INVENTORS SECTION */
+        .inventors-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 5mm;
+            margin-top: 2mm;
+        }
+
+        .inventor {
+            text-align: center;
+        }
+
+        .inventor-photo {
+            width: 25mm;
+            height: 25mm;
+            border-radius: 50%;
+            border: 3px solid #C5A059;
+            background: #2a2a2a;
+            margin: 0 auto 2mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #C5A059;
+            font-size: 14pt;
+            overflow: hidden;
+        }
+
+        .inventor-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .inventor-name {
+            font-size: 9pt;
+            color: #C5A059;
+            font-weight: 600;
+        }
+
+        .inventor-role {
+            font-size: 7pt;
+            color: #888;
+            margin-top: 1mm;
+        }
+
+        /* SCREENSHOTS */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3mm;
+            margin-top: 2mm;
+        }
+
+        .screenshot {
+            background: #2a2a2a;
+            border: 2px solid #C5A059;
+            border-radius: 4px;
+            aspect-ratio: 9/16;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 8pt;
+            overflow: hidden;
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .screenshot.desktop {
+            grid-column: 1 / -1;
+            aspect-ratio: 16/9;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #1E1E1E;
+            border: 2px solid #C5A059;
+            border-radius: 6px;
+            padding: 4mm;
+            text-align: center;
+        }
+
+        .footer p {
+            font-family: 'Playfair Display', serif;
+            font-size: 10pt;
+            color: #D4AF37;
+            font-style: italic;
+        }
+
+        /* PRINT STYLES - FORCE 1 PAGE */
+        @media print {
+            @page {
+                size: A3 portrait;
+                margin: 0;
+                /* Important: Remove browser margins */
+            }
+
+            body,
+            html {
+                margin: 0;
+                padding: 0;
+                width: 297mm;
+                height: 420mm;
+                overflow: hidden;
+                /* Force cut off if extra */
+                -webkit-print-color-adjust: exact;
+                /* Ensure colors print correctly */
+                print-color-adjust: exact;
+            }
+
+            .poster-container {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 10mm;
+                /* Sikit padding dalam supaya tak rapat tepi sangat */
+                page-break-after: avoid;
+                page-break-before: avoid;
+            }
+
+            /* Adjust spacing untuk muat 1 page konfirm */
+            .section {
+                margin-bottom: 2mm;
+                padding: 3mm;
+            }
+
+            .header {
+                margin-bottom: 3mm;
+                padding: 4mm;
+            }
+
+            .content-row {
+                gap: 3mm;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="poster-container">
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-top">
+                <!-- Left: Logo -->
+                <div class="logo-container">
+                    <img src="assets/images/uthm_logo.png" alt="UTHM Logo" style="height: 35mm; width: auto;">
+                </div>
+
+                <!-- Right: Text Info -->
+                <div class="header-right-text">
+                    <div class="fyp-title">FINAL YEAR PROJECT</div>
+                    <div class="faculty-name">FACULTY OF COMPUTER SCIENCE<br>AND INFORMATION TECHNOLOGY</div>
+                </div>
+            </div>
+
+            <div class="project-title">
+                <h1>HITZMEN BARBERSHOP<br>APPOINTMENT SYSTEM</h1>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="content-row">
+
+            <!-- LEFT COLUMN -->
+            <div class="column">
+
+                <!-- Product Description -->
+                <div class="section">
+                    <div class="section-header">Product Description</div>
+                    <p>Hitzmen Barbershop is a modern barbershop management system designed for the grooming industry.
+                        It enables seamless online appointment booking via web platform, real-time staff schedule
+                        management, automated customer notifications, and comprehensive booking analytics - all in one
+                        integrated platform.</p>
+                </div>
+
+                <!-- Key Features -->
+                <div class="section">
+                    <div class="section-header">Key Features</div>
+                    <ul class="two-column-list">
+                        <li>Online Appointment Booking</li>
+                        <li>Real-Time Notifications</li>
+                        <li>Customer Dashboard</li>
+                        <li>Secure Authentication</li>
+                        <li>Staff Dashboard</li>
+                        <li>Service Gallery</li>
+                        <li>Admin Management Panel</li>
+                        <li>Business Analytics</li>
+                        <li>Automated Schedule Management</li>
+                        <li>Mobile Responsive Design</li>
+                    </ul>
+                </div>
+
+                <!-- Novelty and Inventiveness -->
+                <div class="section">
+                    <div class="section-header">Novelty and Inventiveness</div>
+                    <ul>
+                        <li><strong>Automated Schedule Synchronization</strong> - System automatically updates staff
+                            status based on daily schedules</li>
+                        <li><strong>Real-Time Availability Engine</strong> - Time slots generated instantly based on
+                            staff schedules</li>
+                        <li><strong>Multi-Channel Notification System</strong> - Customers receive notifications through
+                            website and email</li>
+                        <li><strong>Hybrid Authentication</strong> - Email or Google OAuth login options</li>
+                        <li><strong>Intelligent Dashboard Analytics</strong> - Real-time business data and insights</li>
+                        <li><strong>Smart Booking Prevention</strong> - Blocks past dates and times automatically</li>
+                        <li><strong>Cross-Platform Design</strong> - Works seamlessly on all devices</li>
+                    </ul>
+                </div>
+
+                <!-- Publication -->
+                <div class="section">
+                    <div class="section-header">Publication</div>
+                    <div style="text-align: center; padding: 2mm;">
+                        <p
+                            style="font-family: 'Playfair Display', serif; font-size: 10pt; color: #D4AF37; font-style: italic; border: 1px solid #C5A059; padding: 4mm; border-radius: 4px; width: 100%;">
+                            This project, Hitzmen Barbershop Appointment System has been submitted for the Applied
+                            Information Technology and Computer
+                            Science
+                            (AITCS)
+                        </p>
+                    </div>
+                </div>
+
+                <!-- System Access -->
+                <div class="section"
+                    style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <div class="section-header" style="width: 100%; margin-bottom: 2mm;">System Access</div>
+                    <div style="background: white; padding: 3mm; border-radius: 4px; display: inline-block;">
+                        <img src="assets/images/qr_code.png" alt="Scan Me"
+                            style="width: 40mm; height: 40mm; display: block;">
+                    </div>
+                    <div
+                        style="color: #C5A059; font-size: 10pt; font-weight: 700; margin-top: 3mm; text-transform: uppercase; letter-spacing: 1px;">
+                        Scan to Visit Website</div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="column">
+
+                <!-- Inventors -->
+                <div class="section">
+                    <div class="section-header">Inventors</div>
+                    <div class="inventors-container">
+                        <div class="inventor">
+                            <div class="inventor-photo">
+                                <img src="assets/images/student.png" alt="Student" style="object-position: center 20%;">
+                            </div>
+                            <div class="inventor-name">AHMAD ZARRUQ BIN<br>MOHAMAD YUSOF</div>
+                            <div class="inventor-role">Student</div>
+                        </div>
+                        <div class="inventor">
+                            <div class="inventor-photo">
+                                <img src="assets/images/supervisor.png" alt="Supervisor">
+                            </div>
+                            <div class="inventor-name">DR SHAHDATUNNAIM<br>BINTI AZMI</div>
+                            <div class="inventor-role">Supervisor</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Benefits -->
+                <div class="section">
+                    <div class="section-header">Business Benefits</div>
+                    <ul class="two-column-list">
+                        <li>Reduced Manual Workload</li>
+                        <li>Data-Driven Decisions</li>
+                        <li>Increased Revenue</li>
+                        <li>24/7 Booking Availability</li>
+                        <li>Improved Customer Satisfaction</li>
+                        <li>Enhanced Brand Image</li>
+                        <li>Minimized Booking Conflicts</li>
+                        <li>Streamlined Operations</li>
+                    </ul>
+                </div>
+
+                <!-- Product Screenshots -->
+                <div class="section" style="flex: 1;">
+                    <div class="section-header">Product Photo</div>
+                    <div class="screenshots-grid">
+                        <div class="screenshot">
+                            <img src="assets/images/sc_login.png" alt="Login Screen">
+                        </div>
+                        <div class="screenshot">
+                            <img src="assets/images/sc_dashboard.png" alt="Dashboard Screen">
+                        </div>
+                        <div class="screenshot">
+                            <img src="assets/images/sc_booking.png" alt="Booking Screen">
+                        </div>
+                        <div class="screenshot desktop">
+                            <img src="assets/images/sc_admin.png" alt="Admin Dashboard">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Print function
+        function printPoster() {
+            window.print();
+        }
+
+        // Auto-scale for screen viewing
+        window.addEventListener('load', function () {
+            const container = document.querySelector('.poster-container');
+            const scale = Math.min(
+                window.innerWidth / (297 * 3.7795),
+                window.innerHeight / (420 * 3.7795)
+            );
+            if (scale < 1 && window.innerWidth < 1200) {
+                container.style.transform = `scale(${scale})`;
+                container.style.transformOrigin = 'top left';
+            }
+        });
+
+        // Keyboard shortcut: Ctrl+P to print
+        document.addEventListener('keydown', function (e) {
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                printPoster();
+            }
+        });
+    </script>
+</body>
+
+</html>
