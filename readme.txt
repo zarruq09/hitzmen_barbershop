@@ -21,6 +21,8 @@ The system supports three user roles with distinct dashboards. If specific crede
 are not provided below, please check the 'users' table in PHPMyAdmin.
 
 [ADMINISTRATOR]
+username: admin
+pass: admin123
 - Access: Full control over barbers, services, haircuts, and financial reports.
 - Dashboard Features:
   * Manage Barbers (Add/Edit/Delete profiles mechanisms).
